@@ -44,11 +44,6 @@ if ! shopt -oq posix; then
 fi
 
 
-# invoke keychain on startup
-if [ -x /usr/bin/keychain ]; then
-    eval $(keychain --eval ~/.ssh/id_rsa)
-fi
-
 # enable history search by prefix
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
