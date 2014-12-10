@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+cat .dotfilesrc | while read -r src dest; do
+    eval src=$src
+    eval dest=$dest
+    if [ -z $dest ]; then
+       continue
+    fi
+    echo 'cp' $src $dest
+    cp $src $dest
+done
