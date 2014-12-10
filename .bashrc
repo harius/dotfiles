@@ -1,4 +1,7 @@
-# colors
+# everybody has 256 colors now, right?
+export TERM=xterm-256color
+
+# predefined colors
 orange='\[\e[01;38;05;180m\]'
 blue='\[\e[01;38;05;67m\]'
 plain='\[\e[0m\]'

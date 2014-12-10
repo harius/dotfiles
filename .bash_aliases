@@ -1,3 +1,5 @@
+alias ls='ls --color=auto'
+
 alias tmx='tmux -2 attach || tmux -2 new'
 
 alias wide='less -S'

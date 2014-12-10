@@ -1,9 +1,9 @@
-# Invoke keychain on startup
+# invoke keychain on startup
 if [ -x /usr/bin/keychain ]; then
     eval $(keychain --eval ~/.ssh/id_rsa)
 fi
 
-# Execute .bashrc
+# execute .bashrc
 if [ -f .bashrc ]; then
     source .bashrc
 fi
