@@ -3,3 +3,6 @@
 .bash_aliases ~/.bash_aliases
 
 .vimrc ~/.vimrc
+
+.tmux.conf ~/.tmux.conf
+
