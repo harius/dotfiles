@@ -17,6 +17,9 @@ let g:syntastic_python_pylint_post_args='--disable=C0103,C0111'
 syntax on
 
 colorscheme 256-grayvim
+hi CursorLine cterm=None ctermbg=237
+hi ColorColumn ctermbg=60
+
 set ruler
 set number
 set laststatus=2
