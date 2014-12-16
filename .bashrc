@@ -1,5 +1,7 @@
 # everybody has 256 colors now, right?
-export TERM=xterm-256color
+if [ $TERM = 'xterm' ]; then
+    export TERM=xterm-256color
+fi
 
 # predefined colors
 orange='\[\e[01;38;05;180m\]'
@@ -28,6 +30,9 @@ shopt -s checkwinsize
 
 # prompt
 PS1="\n${prompt_color}\u@\h${plain}\n\$ "
+
+# header
+PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
 
 # disable virtualenv prompt manipulations
 export VIRTUAL_ENV_DISABLE_PROMPT=1
