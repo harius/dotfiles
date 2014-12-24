@@ -1,0 +1,5 @@
+[user]
+	name = Zakhar Pilipchuk
+	email = zahaaar@yandex-team.ru
+[credential]
+	helper = cache --timeout=3600
