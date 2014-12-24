@@ -1,0 +1,3 @@
+[submodule "dvtm"]
+	path = dvtm
+	url = git://repo.or.cz/dvtm.git
