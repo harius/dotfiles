@@ -11,3 +11,6 @@ alias rfcdate='date --rfc-3339=date'
 
 alias mryread='mapreduce-yt -read'
 
+alias gst='git status'
+alias glog='git log'
+alias gca='git commit --all'
