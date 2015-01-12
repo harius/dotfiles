@@ -4,6 +4,4 @@
 
 .vimrc ~/.vimrc
 
-.tmux.conf ~/.tmux.conf
-
 .gitconfig ~/.gitconfig
