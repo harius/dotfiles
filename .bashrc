@@ -32,7 +32,19 @@ shopt -s checkwinsize
 PS1="\n${prompt_color}\u@\h${plain}\n\$ "
 
 # header
-PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
+set_header_text () {
+    echo -ne "\033]0;$1\007"
+}
+
+prepare_header_text () {
+    git_branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
+    if [ $? -eq 0 ]; then
+      git_branch=" ($git_branch)"
+    fi
+    echo "$PWD$git_branch"
+} 
+
+PROMPT_COMMAND='set_header_text "$(prepare_header_text)"'
 
 # disable virtualenv prompt manipulations
 export VIRTUAL_ENV_DISABLE_PROMPT=1
