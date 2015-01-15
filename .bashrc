@@ -9,8 +9,8 @@ blue='\[\e[01;38;05;67m\]'
 plain='\[\e[0m\]'
 
 # execute custom part of .bashrc
-if [ -f .bashrc_custom ]; then
-    source .bashrc_custom
+if [ -f ~/.bashrc_custom ]; then
+    source ~/.bashrc_custom
 fi
 
 # don't put lines starting with space in the history.
@@ -72,7 +72,7 @@ bind '"\e[B":history-search-forward'
 shopt -s autocd
 
 # execute private part of .bashrc
-if [ -f .bashrc_private ]; then
-    source .bashrc_private
+if [ -f ~/.bashrc_private ]; then
+    source ~/.bashrc_private
 fi
 
