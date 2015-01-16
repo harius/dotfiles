@@ -14,3 +14,8 @@ alias mryread='mapreduce-yt -read'
 alias gst='git status'
 alias glog='git log'
 alias gca='git commit --all'
+
+hoc() {
+    cd ~/mrjob/statadhoc-$1
+}
+
