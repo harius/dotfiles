@@ -63,7 +63,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
 # enable history search by prefix
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'

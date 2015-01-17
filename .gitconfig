@@ -1,9 +1,14 @@
 [user]
-	name = Zakhar Pilipchuk
-	email = zahaaar@yandex-team.ru
+    name = Zakhar Pilipchuk
+    email = zahaaar@yandex-team.ru
 [credential]
-	helper = cache --timeout=3600
+    helper = cache --timeout=3600
 [core]
-	editor = vim
+    editor = vim
 [alias]
-	tr = log --graph --abbrev-commit --decorate --date=relative --format=format:\"%C(bold blue)%h%C(reset)  %C(bold blue)(%ar)%C(reset)     %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)\" --all
+    tree = log --graph --abbrev-commit --decorate --date=relative --format=format:\
+\"%C(bold blue)%h%C(reset) %C(bold blue)(%ar)%C(reset)\"\
+\" %C(white)%s%C(reset) %C(dim white)- %an%C(reset)\"\
+\" %C(bold yellow)%d%C(reset)\" --all
+    co = commit --verbose
+    st = status

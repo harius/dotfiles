@@ -7,10 +7,11 @@ call vundle#rc()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/syntastic'
-Plugin 'vim-scripts/256-grayvim'
 Plugin 'xuhdev/vim-latex-live-preview'
+Plugin 'vim-scripts/strange'
 
 filetype plugin indent on
+syntax on
 
 let g:syntastic_mode_map = {'mode': 'active', 'passive_filetypes': ['tex']}
 let g:syntastic_python_checkers = ['flake8', 'pylint', 'pep8']
@@ -18,11 +19,8 @@ let g:syntastic_python_pylint_post_args = '--disable=C0103,C0111'
 
 let g:livepreview_previewer = 'zathura'
 
-syntax on
-
-colorscheme 256-grayvim
-hi CursorLine cterm=None ctermbg=237
-hi ColorColumn ctermbg=60
+set background=dark
+colorscheme strange
 
 set ruler
 set number
@@ -48,6 +46,9 @@ set expandtab
 set nowrapscan
 set showmatch
 set incsearch
+
+set listchars=tab:⇥·
+set list
 
 set encoding=utf-8
 set fileencodings=utf-8,cp1251,koi8-r
