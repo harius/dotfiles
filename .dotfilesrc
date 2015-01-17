@@ -7,3 +7,5 @@
 .gitconfig ~/.gitconfig
 
 .Xresources ~/.Xresources
+
+devilspie/terminal.ds ~/.devilspie/terminal.ds

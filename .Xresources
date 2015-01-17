@@ -28,8 +28,8 @@ URxvt*color7  : #D3D7CF
 URxvt*color15 : #EEEEEC
 
 ! fonts
-URxvt.boldFont: xft:terminus-16
-URxvt.font: xft:terminus-16
+URxvt.font: terminus-bold-20
+URxvt.boldFont: terminus-bold-20
 
 ! geometry
-URxvt*geometry: 120x30
+URxvt*geometry: 110x30
