@@ -1,4 +1,4 @@
-alias ls='ls --color=auto'
+alias ls='ls --color=auto -w 80'
 
 alias wide='less -S'
 alias lumos="sed -r 's/	/⇥.../g'"

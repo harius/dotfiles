@@ -5,3 +5,5 @@
 .vimrc ~/.vimrc
 
 .gitconfig ~/.gitconfig
+
+.Xresources ~/.Xresources

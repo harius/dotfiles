@@ -12,3 +12,5 @@
 \" %C(bold yellow)%d%C(reset)\" --all
     co = commit --verbose
     st = status
+[push]
+    default = simple
