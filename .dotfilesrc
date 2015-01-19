@@ -9,3 +9,4 @@
 .Xresources ~/.Xresources
 
 devilspie/terminal.ds ~/.devilspie/terminal.ds
+devilspie/firefox.ds ~/.devilspie/firefox.ds
