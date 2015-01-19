@@ -3,4 +3,5 @@
         (contains (application_name)  "rxvt"))
     (begin
         (undecorate)
-        (geometry "+150+50")))
+        (geometry "+150+0")
+        (maximize_vertically)))
