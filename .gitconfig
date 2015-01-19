@@ -13,4 +13,4 @@
     co = commit --verbose
     st = status
 [push]
-    default = simple
+    default = matching
