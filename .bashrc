@@ -3,6 +3,11 @@ if [ $TERM = 'xterm' ]; then
     export TERM=xterm-256color
 fi
 
+# add my scripts to PATH
+if [ -d ~/bin ]; then
+    export PATH+=":$HOME/bin"
+fi
+
 # predefined colors
 orange='\[\e[01;38;05;180m\]'
 blue='\[\e[01;38;05;67m\]'
