@@ -60,3 +60,23 @@ set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 set updatetime=1000
 
+" Habit breaking
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+noremap <PageUp> <NOP>
+noremap <PageDown> <NOP>
+
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+" inoremap <Left> <NOP>
+" inoremap <Right> <NOP>
+inoremap <PageUp> <NOP>
+inoremap <PageDown> <NOP>
+
+noremap h <NOP>
+noremap j <NOP>
+noremap k <NOP>
+noremap l <NOP>
+
