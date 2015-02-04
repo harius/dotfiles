@@ -70,8 +70,8 @@ noremap <PageDown> <NOP>
 
 inoremap <Up> <NOP>
 inoremap <Down> <NOP>
-" inoremap <Left> <NOP>
-" inoremap <Right> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
 inoremap <PageUp> <NOP>
 inoremap <PageDown> <NOP>
 
