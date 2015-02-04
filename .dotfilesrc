@@ -9,3 +9,5 @@
 .Xresources ~/.Xresources
 
 devilspie/terminal.ds ~/.devilspie/terminal.ds
+
+dvtm/config.h ~/share/dvtm/config.h

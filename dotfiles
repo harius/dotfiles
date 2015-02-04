@@ -2,9 +2,17 @@
 cat .dotfilesrc | while read -r src dest; do
     eval src=$src
     eval dest=$dest
+
     if [ -z $dest ]; then
-       continue
+        continue
     fi
-    echo 'cp' $src $dest
-    cp $src $dest
+
+    if [ -e "$dest" ]; then
+        echo "Creating backup copy for $dest"$
+        mkdir -p "$HOME/.tmp"
+        mv -t "$HOME/.tmp" "$dest"
+    fi
+
+    echo "$src -> $dest"
+    ln -s -r $src $dest
 done
