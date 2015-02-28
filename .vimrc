@@ -1,3 +1,5 @@
+set encoding=utf-8
+
 set nocompatible
 
 filetype off
@@ -50,7 +52,6 @@ set incsearch
 set listchars=tab:⇥·
 set list
 
-set encoding=utf-8
 set fileencodings=utf-8,cp1251,koi8-r
 
 set backspace=indent,eol,start
@@ -70,8 +71,8 @@ noremap <PageDown> <NOP>
 
 inoremap <Up> <NOP>
 inoremap <Down> <NOP>
-" inoremap <Left> <NOP>
-" inoremap <Right> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
 inoremap <PageUp> <NOP>
 inoremap <PageDown> <NOP>
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 cat .dotfilesrc | while read -r src dest; do
-    eval src=$src
+    eval src=$PWD/$src
     eval dest=$dest
 
     if [ -z $dest ]; then
@@ -14,5 +14,5 @@ cat .dotfilesrc | while read -r src dest; do
     fi
 
     echo "$src -> $dest"
-    ln -s -r $src $dest
+    ln -s $src $dest
 done
