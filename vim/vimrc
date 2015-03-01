@@ -59,6 +59,7 @@ set backspace=indent,eol,start
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
+set viminfo+=n~/.vim/viminfo
 set updatetime=1000
 
 " Habit breaking
@@ -81,3 +82,5 @@ noremap j <NOP>
 noremap k <NOP>
 noremap l <NOP>
 
+noremap - <NOP>
+noremap + <NOP>
