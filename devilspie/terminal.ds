@@ -1,7 +1,0 @@
-(if (or
-        (is (application_name) "x-terminal-emulator")
-        (contains (application_name)  "rxvt"))
-    (begin
-        (undecorate)
-        (geometry "+150+0")
-        (maximize_vertically)))
