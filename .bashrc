@@ -8,6 +8,12 @@ if [ -d ~/bin ]; then
     export PATH+=":$HOME/bin"
 fi
 
+# activate plenv
+if [ -d ~/.plenv ]; then
+    export PATH+=":$HOME/.plenv/bin"
+    eval "$(plenv init -)"
+fi
+
 # predefined colors
 orange='\[\e[01;38;05;180m\]'
 blue='\[\e[01;38;05;67m\]'
@@ -34,7 +40,7 @@ shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # prompt
-PS1="\n${prompt_color}\u@\h${plain}\n\$ "
+PS1="\n${prompt_color}\u@\h${plain} (\A)\n\$ "
 
 # header
 set_header_text () {
