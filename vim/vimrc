@@ -9,7 +9,6 @@ call vundle#rc()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/syntastic'
-Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'vim-scripts/strange'
 Plugin 'bling/vim-bufferline'
 
@@ -20,8 +19,6 @@ syntax on
 let g:syntastic_mode_map = {'mode': 'active', 'passive_filetypes': ['tex']}
 let g:syntastic_python_checkers = ['flake8', 'pylint', 'pep8']
 let g:syntastic_python_pylint_post_args = '--disable=C0103,C0111'
-
-let g:livepreview_previewer = 'zathura'
 
 set background=dark
 colorscheme strange

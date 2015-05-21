@@ -78,11 +78,7 @@ fi
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
 
-# enable auto cd
-shopt -s autocd
-
 # execute private part of .bashrc
 if [ -f ~/.bashrc_private ]; then
     source ~/.bashrc_private
 fi
-
