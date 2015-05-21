@@ -10,7 +10,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'vim-scripts/strange'
 
-filetype plugin indent on
+filetype plugin on
+filetype indent on
 syntax on
 
 let g:syntastic_mode_map = {'mode': 'active', 'passive_filetypes': ['tex']}
@@ -39,7 +40,6 @@ set wildmenu
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
-set smartindent
 set smarttab
 set expandtab
 
