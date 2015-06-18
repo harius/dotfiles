@@ -23,12 +23,12 @@ let g:syntastic_python_pylint_post_args = '--disable=C0103,C0111'
 set background=dark
 colorscheme strange
 
-set ruler
+set noruler
 set number
 set laststatus=2
 set cursorline
 set colorcolumn=80
-set showcmd
+set noshowcmd
 
 set history=50
 
