@@ -1,5 +1,4 @@
 set nocompatible
-
 set encoding=utf-8
 
 filetype off
@@ -9,19 +8,21 @@ call vundle#rc()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/syntastic'
-Plugin 'vim-scripts/strange'
 Plugin 'bling/vim-bufferline'
 
 filetype plugin on
 filetype indent on
-syntax on
+syntax off
 
 let g:syntastic_mode_map = {'mode': 'active', 'passive_filetypes': ['tex']}
 let g:syntastic_python_checkers = ['flake8', 'pylint', 'pep8']
 let g:syntastic_python_pylint_post_args = '--disable=C0103,C0111'
 
 set background=dark
-colorscheme strange
+
+hi LineNr ctermfg=239 cterm=none
+hi CursorLine ctermbg=233 cterm=none
+hi ColorColumn ctermbg=239 cterm=none
 
 set noruler
 set number
