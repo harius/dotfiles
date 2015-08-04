@@ -28,5 +28,8 @@ URxvt*color7: #D3D7CF
 URxvt*color15: #EEEEEC
 
 ! fonts
-URxvt.font: terminus-bold-20
-URxvt.boldFont: terminus-bold-20
+URxvt.font: terminus-18
+URxvt.boldFont: terminus-bold-18
+
+! disable fancy input modes
+URxvt*iso14755: False
