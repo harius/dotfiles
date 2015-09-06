@@ -33,3 +33,13 @@ URxvt.boldFont: terminus-bold-18
 
 ! disable fancy input modes
 URxvt*iso14755: False
+
+! enable clickable URLs
+URxvt.perl-ext-common: default,matcher
+URxvt.matcher.button: 1
+
+! disable scrollbar
+URxvt.scrollBar: False
+
+! enable border
+URxvt.internalBorder: 5
