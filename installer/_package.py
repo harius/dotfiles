@@ -13,4 +13,9 @@ class Package(object):
         for source, destination in self._files.iteritems():
             src = os.path.join(self._root, source)
             dst = os.path.expanduser(destination)
-            os.symlink(src, dst)
+            try:
+                os.symlink(src, dst)
+            except OSError as ex:
+                sys.stderr.write(
+                    'Cannot create symlink {} -> {}: {}\n'.format(src, dst, ex)
+                )
