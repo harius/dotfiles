@@ -27,6 +27,10 @@
   <menu id="network-menu" />
 
   <separator />
+  <item label="Lock">
+    <action name="Execute"><execute>slock</execute></action>
+  </item>
+
   <item label="Exit">
     <action name="Exit" />
   </item>
