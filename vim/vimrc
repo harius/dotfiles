@@ -21,9 +21,10 @@ let g:syntastic_python_pylint_post_args = '--disable=C0103,C0111'
 
 set background=dark
 
-hi LineNr ctermfg=239 cterm=none
-hi CursorLine ctermbg=233 cterm=none
-hi ColorColumn ctermbg=239 cterm=none
+hi LineNr ctermfg=239
+hi ColorColumn ctermbg=239
+hi CursorLine cterm=None
+hi SpecialKey ctermfg=239
 
 set noruler
 set number
@@ -49,7 +50,7 @@ set nowrapscan
 set showmatch
 set incsearch
 
-set listchars=tab:⇥·
+set listchars=tab:>-
 set list
 
 set fileencodings=utf-8,cp1251,koi8-r
@@ -80,8 +81,8 @@ inoremap <PageUp> <NOP>
 inoremap <PageDown> <NOP>
 
 noremap h <NOP>
-noremap j <NOP>
-noremap k <NOP>
+" noremap j <NOP>
+" noremap k <NOP>
 noremap l <NOP>
 
 noremap - <NOP>
