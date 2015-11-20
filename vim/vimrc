@@ -16,8 +16,8 @@ filetype indent on
 syntax off
 
 let g:syntastic_mode_map = {'mode': 'active', 'passive_filetypes': ['tex']}
-let g:syntastic_python_checkers = ['flake8', 'pylint', 'pep8']
-let g:syntastic_python_pylint_post_args = '--disable=C0103,C0111'
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_args = '--ignore=N801'
 
 set background=dark
 
