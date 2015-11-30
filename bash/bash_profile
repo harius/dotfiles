@@ -1,6 +1,6 @@
-# invoke keychain on startup
-if [ -x /usr/bin/keychain ]; then
-    eval $(keychain --eval ~/.ssh/id_rsa)
+# execute .profile
+if [ -f ~/.profile ]; then
+    source ~/.profile
 fi
 
 # execute .bashrc
