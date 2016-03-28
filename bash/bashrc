@@ -26,8 +26,10 @@ if [ -d ~/.rbenv ]; then
 fi
 
 # predefined colors
-orange='\[\e[01;38;05;180m\]'
+orange='\[\e[01;38;05;208m\]'
 blue='\[\e[01;38;05;67m\]'
+green='\[\e[01;38;05;40m\]'
+pink='\[\e[01;38;05;203m\]'
 plain='\[\e[0m\]'
 
 # execute custom part of .bashrc
