@@ -35,7 +35,7 @@ if [ -f ~/.bashrc_custom ]; then
     source ~/.bashrc_custom
 fi
 
-# don't put lines starting with space in the history.
+# don't put lines starting with space in the history
 HISTCONTROL=ignorespace
 
 # append to the history file, don't overwrite it
@@ -73,15 +73,15 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # load aliases
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+    source ~/.bash_aliases
 fi
 
 # enable completion features
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
+    source /usr/share/bash-completion/bash_completion
   elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
+    source /etc/bash_completion
   fi
 fi
 
@@ -96,3 +96,9 @@ fi
 
 # vim is my editor!
 export EDITOR=vim
+
+# activate travis script
+[ -f /home/zahaaar/.travis/travis.sh ] && source /home/zahaaar/.travis/travis.sh
+
+# avoid warnings from GTK-based apps
+export NO_AT_BRIDGE=1
