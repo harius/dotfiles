@@ -27,7 +27,7 @@ fi
 
 # predefined colors
 orange='\[\e[01;38;05;208m\]'
-blue='\[\e[01;38;05;67m\]'
+blue='\[\e[01;38;05;33m\]'
 green='\[\e[01;38;05;40m\]'
 pink='\[\e[01;38;05;203m\]'
 plain='\[\e[0m\]'
@@ -53,7 +53,7 @@ shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # prompt
-PS1="\n${prompt_color}\u@\h${plain} (\A)\n\$ "
+PS1="\n${prompt_color}@\h${plain} (\A)\n\$ "
 
 # header
 set_header_text () {
