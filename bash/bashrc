@@ -64,7 +64,7 @@ shopt -s checkwinsize
 PS1="${grey}(\A)\n${plain}\$ "
 
 # start with the prompt at the bottom
-tput cup $LINES
+tput cup "$(tput lines)"
 
 # header
 set_header_text () {
