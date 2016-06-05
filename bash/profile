@@ -1,4 +1,1 @@
-# invoke keychain on startup (but not on each tmux window)
-if  [ -x /usr/bin/keychain ] && [ -z "$TMUX" ]; then
-    eval $(keychain --eval ~/.ssh/id_rsa)
-fi
+# nothing to see here

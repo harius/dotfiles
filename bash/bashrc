@@ -13,6 +13,12 @@ if [ -d ~/bin ]; then
     export PATH+=":$HOME/bin"
 fi
 
+# activate pyenv
+if [ -d ~/.pyenv ]; then
+    export PATH+=":$HOME/.pyenv/bin"
+    eval "$(pyenv init -)"
+fi
+
 # activate plenv
 if [ -d ~/.plenv ]; then
     export PATH+=":$HOME/.plenv/bin"
@@ -31,7 +37,7 @@ blue='\[\e[01;38;05;33m\]'
 green='\[\e[01;38;05;40m\]'
 pink='\[\e[01;38;05;203m\]'
 green='\[\e[01;38;05;154m\]'
-grey='\[\e[01;38;05;236m\]'
+grey='\[\e[38;05;242m\]'
 plain='\[\e[0m\]'
 
 # execute custom part of .bashrc
@@ -55,7 +61,10 @@ shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # prompt
-PS1="\n${prompt_color}@\h${grey} (\A)\n\$ ${plain}"
+PS1="${grey}(\A)\n${plain}\$ "
+
+# start with the prompt at the bottom
+tput cup $LINES
 
 # header
 set_header_text () {
@@ -106,3 +115,6 @@ export EDITOR=vim
 
 # avoid warnings from GTK-based apps
 export NO_AT_BRIDGE=1
+
+# airflow, don't clutter my home directory!
+export AIRFLOW_HOME=/home/zahaaar/.airflow
