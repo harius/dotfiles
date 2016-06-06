@@ -118,3 +118,8 @@ export NO_AT_BRIDGE=1
 
 # airflow, don't clutter my home directory!
 export AIRFLOW_HOME=/home/zahaaar/.airflow
+
+# under ssh, attach to tmux session if exists
+if [ -z "$TMUX" ] && tmux has-session 2> /dev/null && [ -n "$SSH_CLIENT" ]; then
+    tmux attach
+fi
