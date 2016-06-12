@@ -1,124 +1,48 @@
-if [ -z "$PS1" ]; then
-    # it's a trap, we are inside non-interactive session! retreat! retreat!
-    return
-fi
+# Hi, my name is Zach and I use Bash:)
 
-# everybody has 256 colors now, right?
-if [ $TERM = 'xterm' ]; then
-    export TERM=xterm-256color
-fi
+# The goodies below are for interactive shells only.
+if [ -z "$PS1" ]; then return; fi
 
-# add my scripts to PATH
-if [ -d ~/bin ]; then
-    export PATH+=":$HOME/bin"
-fi
-
-# activate pyenv
-if [ -d ~/.pyenv ]; then
-    export PATH+=":$HOME/.pyenv/bin"
-    eval "$(pyenv init -)"
-fi
-
-# activate plenv
-if [ -d ~/.plenv ]; then
-    export PATH+=":$HOME/.plenv/bin"
-    eval "$(plenv init -)"
-fi
-
-# activate rbenv
-if [ -d ~/.rbenv ]; then
-    export PATH+=":$HOME/.rbenv/bin"
-    eval "$(rbenv init -)"
-fi
-
-# predefined colors
-orange='\[\e[01;38;05;208m\]'
-blue='\[\e[01;38;05;33m\]'
-green='\[\e[01;38;05;40m\]'
-pink='\[\e[01;38;05;203m\]'
-green='\[\e[01;38;05;154m\]'
-grey='\[\e[38;05;242m\]'
-plain='\[\e[0m\]'
-
-# execute custom part of .bashrc
-if [ -f ~/.bashrc_custom ]; then
-    source ~/.bashrc_custom
-fi
-
-# don't put lines starting with space in the history
-HISTCONTROL=ignorespace
-
-# append to the history file, don't overwrite it
-shopt -s histappend
-
-HISTSIZE=1000
-HISTFILESIZE=2000
-
-# update the values of LINES and COLUMNS when necessary
-shopt -s checkwinsize
-
-# make less more friendly for non-text input files
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# prompt
-PS1="${grey}(\A)\n${plain}\$ "
-
-# start with the prompt at the bottom
+# Let's begin from the end.
 tput cup "$(tput lines)"
 
-# header
-set_header_text () {
-    echo -ne "\033]0;$1\007"
-}
+# That's my prompt.
+PS1="\[\e[38;05;242m\](\A)\n\[\e[0m\]\$ "
 
-prepare_header_text () {
-    git_branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
-    if [ $? -eq 0 ]; then
-      git_branch=" ($git_branch)"
-    fi
-    echo "$PWD$git_branch"
-} 
-
-PROMPT_COMMAND='set_header_text "$(prepare_header_text)"'
-
-# disable virtualenv prompt manipulations
+# Don't you mess with it.
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
-# load aliases
-if [ -f ~/.bash_aliases ]; then
-    source ~/.bash_aliases
-fi
+# Nobody will stand between Bash and ^S.
+stty -ixon
 
-# enable completion features
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    source /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    source /etc/bash_completion
-  fi
-fi
+# Those who cannot remember the past are condemned to repeat it.
+shopt -s histappend
+HISTSIZE=10000
+HISTFILESIZE=10000
 
-# enable history search by prefix
-bind '"\e[A":history-search-backward'
-bind '"\e[B":history-search-forward'
-
-# execute private part of .bashrc
-if [ -f ~/.bashrc_private ]; then
-    source ~/.bashrc_private
-fi
-
-# vim is my editor!
+# Are there any other editors?
 export EDITOR=vim
 
-# activate travis script
-[ -f /home/zahaaar/.travis/travis.sh ] && source /home/zahaaar/.travis/travis.sh
+# Mere color, unspoiled by meaning, and unallied with definite form,
+# can speak to the soul in a thousand different ways.
+alias ls='ls --color=auto'
 
-# avoid warnings from GTK-based apps
-export NO_AT_BRIDGE=1
+# Squeezing more out of less.
+[ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 
-# airflow, don't clutter my home directory!
-export AIRFLOW_HOME=/home/zahaaar/.airflow
+# Polyglot and proud of it:)
+for xxenv in pyenv rbenv plenv; do
+    xxenv_home="$HOME/.$xxenv/bin"
 
+    export PATH+=":$xxenv_home"
+    [ -x "$xxenv_home/$xxenv" ] && eval "$($xxenv init -)"
+done
+
+export PATH+=":$HOME/bin"
+
+[ -f ~/.bashrc_private ] && source ~/.bashrc_private
+
+# List tmux sessions.
 if [ -x /usr/bin/tmux ] && [ -z "$TMUX" ] && tmux has-session 2> /dev/null; then
     echo '--- tmux sessions ---'
     tmux list-sessions -F '* #{session_name}'

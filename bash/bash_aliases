@@ -1,2 +1,0 @@
-alias ls='ls --color=auto -w 80'
-alias lumos="sed -r 's/	/⇥.../g'"
