@@ -10,21 +10,23 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-bufferline'
 Plugin 'freitass/todo.txt-vim'
+Plugin 'chriskempson/base16-vim'
 
 filetype plugin on
 filetype indent on
 syntax on
 
+colorscheme base16-default
+
 let g:syntastic_mode_map = {'mode': 'active', 'passive_filetypes': ['tex']}
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args = '--ignore=N801'
-
 
 let g:bufferline_echo = 0
 let g:bufferline_show_bufnr = 0
 let g:bufferline_active_buffer_left = ''
 let g:bufferline_active_buffer_right = ''
-let g:bufferline_active_highlight = 'CustomActiveTab'
+" let g:bufferline_active_highlight = 'CustomActiveTab'
 
 autocmd VimEnter *
   \ let &statusline='%{bufferline#refresh_status()}' . '%=' . bufferline#get_status_string() . ' '
@@ -32,19 +34,17 @@ set cmdheight=2
 
 set background=dark
 
-hi LineNr ctermfg=239
-hi ColorColumn ctermbg=239
-hi CursorLine cterm=None
-hi SpecialKey ctermfg=239
+" hi LineNr ctermfg=239
+" hi ColorColumn ctermbg=239
+" hi CursorLine cterm=None
+" hi SpecialKey ctermfg=239
 
 set hidden
 
 set noruler
 set number
 set laststatus=2
-" set numberwidth=6
 set cursorline
-" set colorcolumn=80
 set noshowcmd
 
 set history=50
@@ -79,7 +79,7 @@ set viminfo+=n~/.vim/viminfo
 set undofile
 set updatetime=1000
 
-" Habit breaking
+" Habit breaking, habit making.
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
@@ -94,14 +94,9 @@ inoremap <Right> <NOP>
 inoremap <PageUp> <NOP>
 inoremap <PageDown> <NOP>
 
-noremap h <NOP>
-" noremap j <NOP>
-" noremap k <NOP>
-noremap l <NOP>
-
 noremap - <NOP>
 noremap + <NOP>
 
-hi CustomActiveTab ctermbg=23
-hi StatusLine cterm=none ctermbg=black
-hi StatusLineNC cterm=none ctermbg=black
+" hi CustomActiveTab ctermbg=23
+" hi StatusLine cterm=none ctermbg=black
+" hi StatusLineNC cterm=none ctermbg=black
