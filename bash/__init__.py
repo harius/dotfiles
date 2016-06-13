@@ -7,6 +7,7 @@ bash = _Package(
         'profile': '~/.profile',
         'bash_profile': '~/.bash_profile',
         'bashrc': '~/.bashrc',
-        'inputrc': '~/.inputrc'
+        'inputrc': '~/.inputrc',
+        'dircolors': '~/.dircolors'
     }
 )

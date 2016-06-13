@@ -25,6 +25,7 @@ export EDITOR=vim
 
 # Mere color, unspoiled by meaning, and unallied with definite form,
 # can speak to the soul in a thousand different ways.
+[ -x /usr/bin/dircolors ] && eval "$(dircolors -b ~/.dircolors)"
 alias ls='ls --color=auto'
 
 # Squeezing more out of less.
