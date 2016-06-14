@@ -1,14 +1,13 @@
 # Hi, my name is Zach and I use Bash:)
 
 # The goodies below are for interactive shells only.
-if [ -z "$PS1" ]; then return; fi
+[ -n "$PS1" ] || return
 
 # Let's begin from the end.
-tput cup "$(tput lines)"
+[ -x /usr/bin/tput ] && tput cup "$(tput lines)"
 
 # That's my prompt.
 PS1="\[\e[38;05;242m\](\A)\n\[\e[0m\]\$ "
-
 # Don't you mess with it.
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
@@ -21,7 +20,7 @@ HISTSIZE=10000
 HISTFILESIZE=10000
 
 # Are there any other editors?
-export EDITOR=vim
+[ -x /usr/bin/vim ] && export EDITOR=vim
 
 # Mere color, unspoiled by meaning, and unallied with definite form,
 # can speak to the soul in a thousand different ways.

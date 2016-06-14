@@ -1,6 +1,2 @@
 [ -f ~/.profile ] && source ~/.profile
 [ -f ~/.bashrc ] && source ~/.bashrc
-
-if [ -x /usr/bin/keychain ] && [ -z "$TMUX" ]; then
-    eval $(keychain --eval ~/.ssh/id_rsa)
-fi
