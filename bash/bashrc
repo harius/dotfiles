@@ -1,5 +1,3 @@
-# Hi, my name is Zach and I use Bash:)
-
 # The goodies below are for interactive shells only.
 [ -n "$PS1" ] || return
 
@@ -16,6 +14,7 @@ stty -ixon
 
 # Those who cannot remember the past are condemned to repeat it.
 shopt -s histappend
+HISTFILE=~/.cache/bash_history
 HISTSIZE=10000
 HISTFILESIZE=10000
 
@@ -24,11 +23,12 @@ HISTFILESIZE=10000
 
 # Mere color, unspoiled by meaning, and unallied with definite form,
 # can speak to the soul in a thousand different ways.
-[ -x /usr/bin/dircolors ] && eval "$(dircolors -b ~/.dircolors)"
+[ -x /usr/bin/dircolors ] && [ -e ~/.dircolors ] && eval "$(dircolors -b ~/.dircolors)"
 alias ls='ls --color=auto'
 
 # Squeezing more out of less.
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
+export LESSHISTFILE=/dev/null
 
 # Polyglot and proud of it:)
 for xxenv in pyenv rbenv plenv; do
