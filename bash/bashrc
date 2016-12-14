@@ -33,12 +33,10 @@ export LESSHISTFILE=/dev/null
 # Polyglot and proud of it:)
 for xxenv in pyenv rbenv plenv; do
     xxenv_home="$HOME/.$xxenv/bin"
-
-    export PATH+=":$xxenv_home"
-    [ -x "$xxenv_home/$xxenv" ] && eval "$($xxenv init -)"
+    [ -x "$xxenv_home/$xxenv" ] && export PATH="$xxenv_home:$PATH" && eval "$($xxenv init -)"
 done
 
-export PATH+=":$HOME/bin"
+export PATH="$HOME/.local/bin:$PATH"
 
 [ -f ~/.bashrc_private ] && source ~/.bashrc_private
 
