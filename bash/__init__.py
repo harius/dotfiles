@@ -5,7 +5,6 @@ bash = _Package(
     __name__,
     {
         'profile': '~/.profile',
-        'bash_profile': '~/.bash_profile',
         'bashrc': '~/.bashrc',
         'inputrc': '~/.inputrc',
         'dircolors': '~/.config/ls/dircolors'

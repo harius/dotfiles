@@ -1,2 +1,6 @@
 [ -x /usr/bin/ssh-askpass ] && export SSH_ASKPASS=ssh-askpass
 [ -x /usr/bin/keychain ] && eval $(keychain --quiet --eval ~/.ssh/id_rsa)
+
+if [ "$BASH" ] && [ "$BASH" != "/bin/sh" ]; then
+    [ -f ~/.bashrc ] && source ~/.bashrc
+fi
