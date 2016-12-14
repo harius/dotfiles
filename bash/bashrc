@@ -23,7 +23,7 @@ HISTFILESIZE=10000
 
 # Mere color, unspoiled by meaning, and unallied with definite form,
 # can speak to the soul in a thousand different ways.
-[ -x /usr/bin/dircolors ] && [ -e ~/.dircolors ] && eval "$(dircolors -b ~/.dircolors)"
+[ -x /usr/bin/dircolors ] && [ -e ~/.config/ls/dircolors ] && eval "$(dircolors -b ~/.config/ls/dircolors)"
 alias ls='ls --color=auto'
 
 # Squeezing more out of less.

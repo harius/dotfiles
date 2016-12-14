@@ -8,6 +8,6 @@ bash = _Package(
         'bash_profile': '~/.bash_profile',
         'bashrc': '~/.bashrc',
         'inputrc': '~/.inputrc',
-        'dircolors': '~/.dircolors'
+        'dircolors': '~/.config/ls/dircolors'
     }
 )
