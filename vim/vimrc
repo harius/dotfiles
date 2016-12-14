@@ -2,6 +2,8 @@ set nocompatible
 set encoding=utf-8
 
 
+if filereadable(expand('~/.vim/bundle/vundle/README.md'))
+
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim/
@@ -13,12 +15,18 @@ Plugin 'bling/vim-bufferline'
 Plugin 'freitass/todo.txt-vim'
 Plugin 'chriskempson/base16-vim'
 
+colorscheme base16-default
+
 filetype plugin indent on
+
+autocmd VimEnter *
+  \ let &statusline='%{bufferline#refresh_status()}' . '%=' . bufferline#get_status_string() . ' '
+
+endif
+
 syntax on
 
-
 set background=dark
-colorscheme base16-default
 
 
 let g:syntastic_mode_map = {'mode': 'active', 'passive_filetypes': ['tex']}
@@ -35,8 +43,6 @@ hi CustomActiveTab ctermbg=14
 let g:bufferline_active_highlight = 'CustomActiveTab'
 let g:bufferline_inactive_highlight = 'StatusLine'
 
-autocmd VimEnter *
-  \ let &statusline='%{bufferline#refresh_status()}' . '%=' . bufferline#get_status_string() . ' '
 set cmdheight=2
 
 
@@ -76,6 +82,16 @@ set list
 set fileencodings=utf-8,cp1251,koi8-r
 
 set backspace=indent,eol,start
+
+if !isdirectory(expand('~/.vim/backup'))
+call mkdir(expand('~/.vim/backup'))
+endif
+if !isdirectory(expand('~/.vim/swap'))
+call mkdir(expand('~/.vim/swap'))
+endif
+if !isdirectory(expand('~/.vim/undo'))
+call mkdir(expand('~/.vim/undo'))
+endif
 
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
