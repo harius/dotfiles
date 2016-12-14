@@ -1,38 +1,29 @@
 set nocompatible
 set encoding=utf-8
 
+if isdirectory(expand('~/.vim/bundle/Vundle.vim/'))
+    filetype off
 
-if filereadable(expand('~/.vim/bundle/vundle/README.md'))
+    set rtp+=~/.vim/bundle/Vundle.vim/
+    call vundle#rc()
 
-filetype off
+    Plugin 'gmarik/Vundle.vim'
+    Plugin 'scrooloose/syntastic'
+    Plugin 'bling/vim-bufferline'
+    Plugin 'chriskempson/base16-vim'
 
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#rc()
+    colorscheme base16-default
+    set cursorline
 
-Plugin 'gmarik/Vundle.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'bling/vim-bufferline'
-Plugin 'freitass/todo.txt-vim'
-Plugin 'chriskempson/base16-vim'
+    filetype plugin indent on
 
-colorscheme base16-default
-set cursorline
-
-filetype plugin indent on
-
-autocmd VimEnter *
-  \ let &statusline='%{bufferline#refresh_status()}' . '%=' . bufferline#get_status_string() . ' '
-
+    autocmd VimEnter *
+      \ let &statusline='%{bufferline#refresh_status()}' . '%=' . bufferline#get_status_string() . ' '
 else
-
-colorscheme desert
-
+    colorscheme desert
 endif
 
 syntax on
-
-set background=dark
-
 
 let g:syntastic_mode_map = {'mode': 'active', 'passive_filetypes': ['tex']}
 let g:syntastic_python_checkers = ['flake8']
@@ -48,19 +39,14 @@ hi CustomActiveTab ctermbg=14
 let g:bufferline_active_highlight = 'CustomActiveTab'
 let g:bufferline_inactive_highlight = 'StatusLine'
 
-set cmdheight=2
-
-
-" hi LineNr ctermfg=239
-" hi ColorColumn ctermbg=239
-" hi CursorLine cterm=None
-" hi SpecialKey ctermfg=239
-
 set hidden
 
-set noruler
 set number
+
 set laststatus=2
+set noruler
+
+set cmdheight=2
 set noshowcmd
 
 set history=50
@@ -83,24 +69,26 @@ set incsearch
 set listchars=tab:>-
 set list
 
-set fileencodings=utf-8,cp1251,koi8-r
-
 set backspace=indent,eol,start
 
-if !isdirectory(expand('~/.vim/backup'))
-call mkdir(expand('~/.vim/backup'))
-endif
-if !isdirectory(expand('~/.vim/swap'))
-call mkdir(expand('~/.vim/swap'))
-endif
-if !isdirectory(expand('~/.vim/undo'))
-call mkdir(expand('~/.vim/undo'))
-endif
 
-set backupdir=~/.vim/backup//
-set directory=~/.vim/swap//
-set undodir=~/.vim/undo//
+" Auxiliary files and directories.
+
 set viminfo+=n~/.vim/viminfo
 
-set undofile
+if !isdirectory(expand('~/.vim/backup'))
+    call mkdir(expand('~/.vim/backup'))
+endif
+set backupdir=~/.vim/backup//
+
+if !isdirectory(expand('~/.vim/swap'))
+    call mkdir(expand('~/.vim/swap'))
+endif
+set directory=~/.vim/swap//
 set updatetime=1000
+
+if !isdirectory(expand('~/.vim/undo'))
+    call mkdir(expand('~/.vim/undo'))
+endif
+set undodir=~/.vim/undo//
+set undofile
