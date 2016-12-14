@@ -39,9 +39,3 @@ done
 export PATH="$HOME/.local/bin:$PATH"
 
 [ -f ~/.bashrc_private ] && source ~/.bashrc_private
-
-# List tmux sessions.
-if [ -x /usr/bin/tmux ] && [ -z "$TMUX" ] && tmux has-session 2> /dev/null; then
-    echo '--- tmux sessions ---'
-    tmux list-sessions -F '* #{session_name}'
-fi
