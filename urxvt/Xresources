@@ -42,6 +42,7 @@
 
 URxvt.font: terminus-18
 URxvt.boldFont: terminus-bold-18
+URxvt.italicFont: terminus-18
 
 ! Disable fancy input modes.
 URxvt*iso14755: False
