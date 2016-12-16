@@ -1,6 +1,6 @@
 [ -n "$PS1" ] || return
 
-PS1="\[\e[38;05;242m\](\A)\n\[\e[0m\]\$ "
+PS1="\[\e[38;05;242m\](\A)\n\$ \[\e[0m\]"
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 stty -ixon
