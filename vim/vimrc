@@ -9,34 +9,18 @@ if isdirectory(expand('~/.vim/bundle/Vundle.vim/'))
 
     Plugin 'gmarik/Vundle.vim'
     Plugin 'scrooloose/syntastic'
-    Plugin 'bling/vim-bufferline'
-    Plugin 'chriskempson/base16-vim'
-
-    colorscheme base16-default
-    set cursorline
 
     filetype plugin indent on
 
-    autocmd VimEnter *
-      \ let &statusline='%{bufferline#refresh_status()}' . '%=' . bufferline#get_status_string() . ' '
-else
-    colorscheme desert
+    let g:syntastic_mode_map = {'mode': 'active', 'passive_filetypes': ['tex']}
+    let g:syntastic_python_checkers = ['flake8']
+    let g:syntastic_python_flake8_args = '--ignore=N801'
 endif
 
 syntax on
 
-let g:syntastic_mode_map = {'mode': 'active', 'passive_filetypes': ['tex']}
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_args = '--ignore=N801'
-
-let g:bufferline_echo = 0
-let g:bufferline_show_bufnr = 0
-let g:bufferline_active_buffer_left = ''
-let g:bufferline_active_buffer_right = ''
-
-hi CustomActiveTab ctermbg=14
-let g:bufferline_active_highlight = 'CustomActiveTab'
-let g:bufferline_inactive_highlight = 'StatusLine'
+colorscheme desert
+highlight LineNr ctermfg=DarkGrey
 
 set hidden
 
