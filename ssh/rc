@@ -1,4 +1,5 @@
 if [ -x /usr/bin/tmux ] && tmux has-session 2> /dev/null; then
     echo '--- tmux sessions ---'
     tmux list-sessions -F '* #{session_name}'
+    echo
 fi
