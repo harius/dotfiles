@@ -1,12 +1,8 @@
-# The goodies below are for interactive shells only.
 [ -n "$PS1" ] || return
 
-# That's my prompt.
 PS1="\[\e[38;05;242m\](\A)\n\[\e[0m\]\$ "
-# Don't you mess with it.
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
-# Nobody will stand between Bash and ^S.
 stty -ixon
 
 # Those who cannot remember the past are condemned to repeat it.
@@ -15,7 +11,7 @@ HISTFILE=~/.cache/bash_history
 HISTSIZE=10000
 HISTFILESIZE=10000
 
-# Are there any other editors?
+# Beep repeatedly @ Break anything!
 [ -x /usr/bin/vim ] && export EDITOR=vim
 
 # Mere color, unspoiled by meaning, and unallied with definite form,
@@ -23,11 +19,12 @@ HISTFILESIZE=10000
 [ -x /usr/bin/dircolors ] && [ -e ~/.config/ls/dircolors ] && eval "$(dircolors -b ~/.config/ls/dircolors)"
 alias ls='ls --color=auto'
 
-# Squeezing more out of less.
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 export LESSHISTFILE=/dev/null
 
-# Polyglot and proud of it:)
+# No language is studied merely as an aid to other purposes.
+# It will in fact better serve other purposes, philological or historical,
+# when it is studied for love, for itself.
 for xxenv in pyenv rbenv plenv; do
     xxenv_home="$HOME/.$xxenv/bin"
     [ -x "$xxenv_home/$xxenv" ] && export PATH="$xxenv_home:$PATH" && eval "$($xxenv init -)"
