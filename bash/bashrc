@@ -1,9 +1,6 @@
 # The goodies below are for interactive shells only.
 [ -n "$PS1" ] || return
 
-# Let's begin from the end.
-[ -x /usr/bin/tput ] && tput cup "$(tput lines)"
-
 # That's my prompt.
 PS1="\[\e[38;05;242m\](\A)\n\[\e[0m\]\$ "
 # Don't you mess with it.
