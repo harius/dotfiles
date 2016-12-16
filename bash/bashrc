@@ -3,7 +3,7 @@
 PS1="\[\e[38;05;242m\](\A)\n\$ \[\e[0m\]"
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
-stty -ixon
+[ -x /bin/stty ] && stty -ixon
 
 # Those who cannot remember the past are condemned to repeat it.
 shopt -s histappend
@@ -11,12 +11,12 @@ HISTFILE=~/.cache/bash_history
 HISTSIZE=10000
 HISTFILESIZE=10000
 
-# Beep repeatedly @ Break anything!
 [ -x /usr/bin/vim ] && export EDITOR=vim
 
 # Mere color, unspoiled by meaning, and unallied with definite form,
 # can speak to the soul in a thousand different ways.
-[ -x /usr/bin/dircolors ] && [ -e ~/.config/ls/dircolors ] && eval "$(dircolors -b ~/.config/ls/dircolors)"
+[ -x /usr/bin/dircolors ] && [ -e ~/.config/ls/dircolors ] \
+  && eval "$(dircolors -b ~/.config/ls/dircolors)"
 alias ls='ls --color=auto'
 
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
@@ -27,7 +27,8 @@ export LESSHISTFILE=/dev/null
 # when it is studied for love, for itself.
 for xxenv in pyenv rbenv plenv; do
     xxenv_home="$HOME/.$xxenv/bin"
-    [ -x "$xxenv_home/$xxenv" ] && export PATH="$xxenv_home:$PATH" && eval "$($xxenv init -)"
+    [ -x "$xxenv_home/$xxenv" ] \
+      && export PATH="$xxenv_home:$PATH" && eval "$($xxenv init -)"
 done
 
 export PATH="$HOME/.local/bin:$PATH"
