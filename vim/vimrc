@@ -44,6 +44,7 @@ set smarttab
 set expandtab
 
 set nowrapscan
+set nowrap
 set showmatch
 set incsearch
 
