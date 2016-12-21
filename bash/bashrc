@@ -25,3 +25,31 @@ export LESSHISTFILE=/dev/null
 export PATH="$HOME/.local/bin:$PATH"
 
 [ -d ~/.packages/pyenv ] && export PYENV_ROOT=~/.packages/pyenv && eval "$(pyenv init -)"
+
+if [ -d ~/.projects ]; then
+    shopt -s nullglob
+    projects=$(for project in ~/.projects/*; do basename "$project"; done)
+    shopt -u nullglob
+
+    if [ -z "$projects" ]; then
+        count=0
+    else
+        count=$(echo "$projects" | wc -l)
+    fi
+
+    if [ "$count" -eq 0 ]; then
+        choice=''
+    elif [ "$count" = 1 ]; then
+        choice=1
+    elif [ "$count" -gt 1 ]; then
+        echo "Projects:"
+        echo "$projects" | cat -n
+
+        read -p "Your choice: " choice
+    fi
+
+    if [ -n "$choice" ]; then
+        project=$(echo "$projects" | sed -n "${choice}p")
+        source ~/.projects/"$project"
+    fi
+fi
