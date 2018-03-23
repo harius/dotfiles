@@ -1,5 +1,5 @@
 set colored-completion-prefix on
 set colored-stats on
 
-"\e[A": ""
-"\e[B": ""
+# "\e[A": ""
+# "\e[B": ""
