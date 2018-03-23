@@ -17,7 +17,7 @@ HISTFILESIZE=10000
 # can speak to the soul in a thousand different ways.
 [ -x /usr/bin/dircolors ] && [ -e ~/.config/ls/dircolors ] \
   && eval "$(dircolors -b ~/.config/ls/dircolors)"
-alias ls='ls --color=auto'
+alias ls='ls --color=auto --width=80'
 
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 export LESSHISTFILE=/dev/null
