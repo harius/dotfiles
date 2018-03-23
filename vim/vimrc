@@ -74,3 +74,6 @@ if !isdirectory(expand('~/.vim/undo'))
 endif
 set undodir=~/.vim/undo//
 set undofile
+
+autocmd BufEnter * call system("tmux rename-window " . "'vim:" . expand("%:t") . "'")
+autocmd VimLeave * call system("tmux setw automatic-rename")
