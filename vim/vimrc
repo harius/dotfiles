@@ -20,10 +20,8 @@ endif
 syntax on
 
 colorscheme desert
-highlight LineNr ctermfg=DarkGrey
 
 set hidden
-
 set number
 
 set laststatus=2
@@ -75,5 +73,7 @@ endif
 set undodir=~/.vim/undo//
 set undofile
 
-autocmd BufEnter * call system("tmux rename-window " . "'vim:" . expand("%:t") . "'")
-autocmd VimLeave * call system("tmux setw automatic-rename")
+if &term == "screen-256color"
+    autocmd BufEnter * call system("tmux rename-window " . "'vim:" . expand("%:t") . "'")
+    autocmd VimLeave * call system("tmux setw automatic-rename")
+endif
