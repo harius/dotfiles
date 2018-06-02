@@ -28,7 +28,7 @@ export LESSHISTFILE=/dev/null
 
 export PATH="$HOME/.local/bin:$PATH"
 
-[ -d ~/.packages/pyenv ] && export PYENV_ROOT=~/.packages/pyenv && eval "$(pyenv init -)"
+[ -z "$PYENV_ROOT" ] && [ -d ~/.packages/pyenv ] && export PATH="$HOME/.packages/pyenv/bin:$PATH" && export PYENV_ROOT=~/.packages/pyenv && eval "$(pyenv init -)"
 
 if [ -d ~/.projects ]; then
     shopt -s nullglob
