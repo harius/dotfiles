@@ -1,34 +1,37 @@
-if [[ $TERM = "xterm" ]]; then
-    export TERM=xterm-256color
-fi
-
+# Don't apply bashrc unless the session is interactive.
 [ -n "$PS1" ] || return
 
+# Make a fancy prompt and preserve it from external instrusions.
 PS1="\[\e[32m\](\A) \[\e[37m\]\w\n\[\e[32m\]\$ \[\e[0m\]"
 export VIRTUAL_ENV_DISABLE_PROMPT=1
-
-[ -x /bin/stty ] && stty -ixon
 
 # Those who cannot remember the past are condemned to repeat it.
 shopt -s histappend
 HISTFILE=~/.cache/bash_history
 HISTSIZE=10000
-HISTFILESIZE=10000
+
+[ -x /bin/stty ] && /bin/stty -ixon
 
 [ -x /usr/bin/vim ] && export EDITOR=vim
 
-# Mere color, unspoiled by meaning, and unallied with definite form,
-# can speak to the soul in a thousand different ways.
 [ -x /usr/bin/dircolors ] && [ -e ~/.config/ls/dircolors ] \
-  && eval "$(dircolors -b ~/.config/ls/dircolors)"
+  && eval "$(/usr/bin/dircolors -b ~/.config/ls/dircolors)"
 alias ls='ls --color=auto --width=80'
-
-[ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
-export LESSHISTFILE=/dev/null
 
 export PATH="$HOME/.local/bin:$PATH"
 
-[ -z "$PYENV_ROOT" ] && [ -d ~/.packages/pyenv ] && export PATH="$HOME/.packages/pyenv/bin:$PATH" && export PYENV_ROOT=~/.packages/pyenv && eval "$(pyenv init -)"
+[ -z "$PYENV_ROOT" ] && [ -d ~/.packages/pyenv ] && \
+  export PATH="$HOME/.packages/pyenv/bin:$PATH" \
+         PYENV_ROOT="$HOME/.packages/pyenv" && \
+  eval "$(pyenv init -)"
+
+[ -z "$ERLENV_ROOT" ] && [ -d ~/.packages/erlenv ] && \
+  export PATH="$HOME/.packages/erlenv/bin:$PATH" \
+         ERLENV_ROOT="$HOME/.packages/erlenv" && \
+  eval "$(erlenv init -)"
+
+[ -d ~/.packages/stack ] && \
+  export PATH="$HOME/.packages/stack:$PATH"
 
 if [ -d ~/.projects ]; then
     shopt -s nullglob
