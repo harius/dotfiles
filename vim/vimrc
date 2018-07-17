@@ -8,13 +8,8 @@ if isdirectory(expand('~/.vim/bundle/Vundle.vim/'))
     call vundle#rc()
 
     Plugin 'gmarik/Vundle.vim'
-    Plugin 'scrooloose/syntastic'
 
     filetype plugin indent on
-
-    let g:syntastic_mode_map = {'mode': 'active', 'passive_filetypes': ['tex']}
-    let g:syntastic_python_checkers = ['flake8']
-    let g:syntastic_python_flake8_args = '--ignore=N801'
 endif
 
 syntax on
