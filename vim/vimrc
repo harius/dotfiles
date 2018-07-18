@@ -8,13 +8,18 @@ if isdirectory(expand('~/.vim/bundle/Vundle.vim/'))
     call vundle#rc()
 
     Plugin 'gmarik/Vundle.vim'
+    Plugin 'endel/vim-github-colorscheme'
 
     filetype plugin indent on
 endif
 
 syntax on
 
-colorscheme desert
+try
+    colorscheme github
+catch
+    colorscheme desert
+endtry
 
 set hidden
 set number
