@@ -1,9 +1,13 @@
 # Don't apply bashrc unless the session is interactive.
 [ -n "$PS1" ] || return
 
-# Make a fancy prompt and preserve it from external instrusions.
+# Make a fancy prompt and preserve it from external intrusions.
 PS1="\[\e[32m\](\A) \[\e[37m\]\w\n\[\e[32m\]\$ \[\e[0m\]"
 export VIRTUAL_ENV_DISABLE_PROMPT=1
+
+if [ ! -d ~/.cache ]; then
+    mkdir ~/.cache
+fi
 
 # Those who cannot remember the past are condemned to repeat it.
 shopt -s histappend
@@ -65,5 +69,5 @@ if [ -d ~/.projects ]; then
 fi
 
 if [ -f ~/.bashrc-local ]; then
-	source ~/.bashrc-local
+    source ~/.bashrc-local
 fi
