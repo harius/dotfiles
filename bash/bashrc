@@ -19,7 +19,7 @@ HISTSIZE=10000
 export CLICOLOR=1
 ls --color >/dev/null 2>/dev/null && alias ls='ls --color=auto --width=80'
 
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:/usr/local/sbin:$PATH"
 
 [ -x /usr/local/bin/pyenv ] && eval "$(pyenv init -)"
 
@@ -62,4 +62,8 @@ if [ -d ~/.projects ]; then
         project=$(echo "$projects" | sed -n "${choice}p")
         source ~/.projects/"$project"
     fi
+fi
+
+if [ -f ~/.bashrc-local ]; then
+	source ~/.bashrc-local
 fi
