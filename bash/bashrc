@@ -71,3 +71,8 @@ fi
 if [ -f ~/.bashrc-local ]; then
     source ~/.bashrc-local
 fi
+
+function rescue_history {
+    history -a
+}
+trap rescue_history SIGHUP
