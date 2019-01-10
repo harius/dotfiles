@@ -9,7 +9,7 @@ if isdirectory(expand('~/.vim/bundle/Vundle.vim/'))
 
     Plugin 'gmarik/Vundle.vim'
     Plugin 'endel/vim-github-colorscheme'
-    Plugin 'ap/vim-buftabline'
+    Plugin 'mihaifm/bufstop'
 
     filetype plugin indent on
 endif
@@ -21,18 +21,10 @@ catch
 endtry
 
 try
-    let g:buftabline_numbers=2
-
-    nmap <D-1> <Plug>BufTabLine.Go(1)
-    nmap <D-2> <Plug>BufTabLine.Go(2)
-    nmap <D-3> <Plug>BufTabLine.Go(3)
-    nmap <D-4> <Plug>BufTabLine.Go(4)
-    nmap <D-5> <Plug>BufTabLine.Go(5)
-    nmap <D-6> <Plug>BufTabLine.Go(6)
-    nmap <D-7> <Plug>BufTabLine.Go(7)
-    nmap <D-8> <Plug>BufTabLine.Go(8)
-    nmap <D-9> <Plug>BufTabLine.Go(9)
+    nnoremap <Tab> :Bufstop<CR>
 endtry
+let g:BufstopKeys = "qwertyuiop"
+let g:BufstopDismissKey = "<Tab>"
 
 syntax on
 
@@ -47,9 +39,9 @@ set cmdheight=2
 set noshowcmd
 
 set wildmenu
+set wildmode=longest:full
 set wildignore=*/.git/*,*/.svn/*
 set wildignore+=*.o,*.so,*.pyc
-set wildmode=longest:full
 
 set shiftwidth=4
 set tabstop=4
@@ -67,10 +59,8 @@ set listchars=tab:>-
 
 set backspace=indent,eol,start
 
-let g:netrw_liststyle = 3
-let g:netrw_banner = 0
-
-nmap <D-o> :Explore<CR>
+nmap <D-o> :e<Space>
+nmap <D-t> :tag<Space>
 
 " Auxiliary files and directories.
 
