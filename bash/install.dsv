@@ -1,0 +1,4 @@
+~/.profile:profile
+~/.bashrc:bashrc
+~/.inputrc:inputrc
+~/.config/ls/dircolors:dircolors
