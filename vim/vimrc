@@ -120,6 +120,8 @@ function FCSHandler(name)
   endif
 endfunction
 
+nmap <Leader>e :e<Space>%:h
+
 if filereadable(expand("~/.vim/vimrc-local"))
     source ~/.vim/vimrc-local
 endif
