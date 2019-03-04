@@ -111,6 +111,15 @@ if &term == "screen-256color"
     autocmd VimLeave * call system("tmux setw automatic-rename")
 endif
 
+au FileChangedShell * call FCSHandler(expand("<afile>:p"))
+function FCSHandler(name)
+  let v:fcs_choice = "reload"
+
+  if v:fcs_reason == "deleted"
+    call setbufvar(expand(a:name), '&modified', '1')
+  endif
+endfunction
+
 if filereadable(expand("~/.vim/vimrc-local"))
     source ~/.vim/vimrc-local
 endif
