@@ -3,6 +3,7 @@
     email = z.pilipchuk@gmail.com
 [core]
     editor = vim
+    excludesfile = ~/.gitignore
 [alias]
     tree = log --graph --abbrev-commit --decorate --date=relative --format=format:\
 \"%C(bold blue)%h%C(reset) %C(bold blue)(%ar)%C(reset)\"\
