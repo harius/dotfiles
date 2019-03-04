@@ -1,0 +1,39 @@
+#!/bin/bash
+install () {
+  echo "Processing $1"
+  while IFS=: read -r destination source; do
+    full_source="$(cd "$(dirname "$1")"; pwd -P)/$source"
+    eval full_destination="$destination"
+
+    if [[ ! -r "$full_source" ]]; then
+      echo "  Missing file $full_source" >/dev/stderr
+      continue
+    fi
+
+    if [[ -e "$full_destination" || -L "$full_destination" ]]; then
+      mkdir -p ~/.backup
+      backup_destination=$(mktemp ~/.backup/XXXXXX)
+      
+      echo "  File exists, moving it away:" >/dev/stderr
+      echo "    ${full_destination/#$HOME/~} -> ${backup_destination/#$HOME/~}" \
+        >/dev/stderr
+      mv "$full_destination" "$backup_destination"
+    fi
+
+    mkdir -p "$(dirname "$full_destination")"
+
+    echo "  Installing:" >/dev/stderr
+    echo "    $source -> ${full_destination/#$HOME/~}" >/dev/stderr
+    ln -s "$full_source" "$full_destination"
+  done <"$1";
+}
+
+if [[ -d "$1" ]]; then
+  find "$1" -name "install.dsv" | while IFS=: read -r install_dsv; do
+    install "$install_dsv"
+  done
+elif [[ -e "$1" ]]; then
+  install "$1"
+else
+  echo "Usage: $0 [path/to/install.dsv]" >/dev/stderr
+fi
