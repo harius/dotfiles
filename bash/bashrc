@@ -1,5 +1,8 @@
-if [ -f ~/.bashrc-local ]; then
-    source ~/.bashrc-local
+shopt -s nullglob
+if [ -d ~/.bashrc.d ]; then
+    for rcfile in ~/.bashrc.d/*; do
+        source $rcfile
+    done
 fi
 
 # Don't apply bashrc unless the session is interactive.
