@@ -1,3 +1,7 @@
+if [ -f ~/.bashrc-local ]; then
+    source ~/.bashrc-local
+fi
+
 # Don't apply bashrc unless the session is interactive.
 [ -n "$PS1" ] || return
 
@@ -66,10 +70,6 @@ if [ -d ~/.projects ]; then
         project=$(echo "$projects" | sed -n "${choice}p")
         source ~/.projects/"$project"
     fi
-fi
-
-if [ -f ~/.bashrc-local ]; then
-    source ~/.bashrc-local
 fi
 
 function rescue_history {
