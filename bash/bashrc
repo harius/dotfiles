@@ -1,3 +1,20 @@
+export PATH="$HOME/.local/bin:/usr/local/sbin:$PATH"
+
+[ -x /usr/local/bin/pyenv ] && eval "$(pyenv init -)"
+
+[ -z "$PYENV_ROOT" ] && [ -d ~/.packages/pyenv ] && \
+  export PATH="$HOME/.packages/pyenv/bin:$PATH" \
+         PYENV_ROOT="$HOME/.packages/pyenv" && \
+  eval "$(pyenv init -)"
+
+[ -z "$ERLENV_ROOT" ] && [ -d ~/.packages/erlenv ] && \
+  export PATH="$HOME/.packages/erlenv/bin:$PATH" \
+         ERLENV_ROOT="$HOME/.packages/erlenv" && \
+  eval "$(erlenv init -)"
+
+[ -d ~/.packages/stack ] && \
+  export PATH="$HOME/.packages/stack:$PATH"
+
 shopt -s nullglob
 if [ -d ~/.bashrc.d ]; then
     for rcfile in ~/.bashrc.d/*; do
@@ -29,23 +46,6 @@ HISTSIZE=10000
   && eval "$(/usr/bin/dircolors -b ~/.config/ls/dircolors)"
 export CLICOLOR=1
 ls --color >/dev/null 2>/dev/null && alias ls='ls --color=auto --width=80'
-
-export PATH="$HOME/.local/bin:/usr/local/sbin:$PATH"
-
-[ -x /usr/local/bin/pyenv ] && eval "$(pyenv init -)"
-
-[ -z "$PYENV_ROOT" ] && [ -d ~/.packages/pyenv ] && \
-  export PATH="$HOME/.packages/pyenv/bin:$PATH" \
-         PYENV_ROOT="$HOME/.packages/pyenv" && \
-  eval "$(pyenv init -)"
-
-[ -z "$ERLENV_ROOT" ] && [ -d ~/.packages/erlenv ] && \
-  export PATH="$HOME/.packages/erlenv/bin:$PATH" \
-         ERLENV_ROOT="$HOME/.packages/erlenv" && \
-  eval "$(erlenv init -)"
-
-[ -d ~/.packages/stack ] && \
-  export PATH="$HOME/.packages/stack:$PATH"
 
 if [ -d ~/.projects ]; then
     shopt -s nullglob
