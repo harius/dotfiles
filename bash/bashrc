@@ -48,6 +48,8 @@ HISTSIZE=10000
 export CLICOLOR=1
 ls --color >/dev/null 2>/dev/null && alias ls='ls --color=auto --width=80'
 
+PS_FORMAT=uname,pid,ppid,pgid,c,stime,time,cmd
+
 if [ -d ~/.projects ]; then
     shopt -s nullglob
     projects=$(for project in ~/.projects/*; do basename "$project"; done)
