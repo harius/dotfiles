@@ -44,6 +44,7 @@ HISTSIZE=10000
 [ -x /usr/bin/vim ] && export EDITOR=vim
 
 ls --version >/dev/null 2>/dev/null && alias ls='ls --color=auto'
+export CLICOLOR=1
 
 export PS_FORMAT=uname,pid,ppid,pgid,c,stime,time,cmd
 
