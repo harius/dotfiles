@@ -75,8 +75,3 @@ if [ -d ~/.projects ]; then
         source ~/.projects/"$project"
     fi
 fi
-
-function rescue_history {
-    history -a
-}
-trap rescue_history SIGHUP
