@@ -7,6 +7,12 @@ export PATH="$HOME/.local/bin:/usr/local/sbin:$PATH"
          PYENV_ROOT="$HOME/.packages/pyenv" && \
   eval "$(pyenv init -)"
 
+if [ -d ~/.local/pyenv ];
+then
+  export PYENV_ROOT=~/.local/pyenv
+  export PATH="$(pyenv root)/shims:$PATH"
+fi
+
 [ -z "$ERLENV_ROOT" ] && [ -d ~/.packages/erlenv ] && \
   export PATH="$HOME/.packages/erlenv/bin:$PATH" \
          ERLENV_ROOT="$HOME/.packages/erlenv" && \
