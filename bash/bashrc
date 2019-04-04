@@ -47,3 +47,4 @@ ls --version >/dev/null 2>/dev/null && alias ls='ls --color=auto'
 export CLICOLOR=1
 
 export PS_FORMAT=uname,pid,ppid,pgid,c,stime,time,cmd
+export MSSQL_CLI_TELEMETRY_OPTOUT=1
