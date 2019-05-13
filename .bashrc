@@ -2,24 +2,14 @@ export PATH="$HOME/.local/bin:/usr/local/sbin:$PATH"
 
 [ -x /usr/local/bin/pyenv ] && eval "$(pyenv init -)"
 
-[ -z "$PYENV_ROOT" ] && [ -d ~/.packages/pyenv ] && \
-  export PATH="$HOME/.packages/pyenv/bin:$PATH" \
-         PYENV_ROOT="$HOME/.packages/pyenv" && \
-  eval "$(pyenv init -)"
-
 if [ -d ~/.local/pyenv ];
 then
   export PYENV_ROOT=~/.local/pyenv
   export PATH="$(pyenv root)/shims:$PATH"
 fi
 
-[ -z "$ERLENV_ROOT" ] && [ -d ~/.packages/erlenv ] && \
-  export PATH="$HOME/.packages/erlenv/bin:$PATH" \
-         ERLENV_ROOT="$HOME/.packages/erlenv" && \
-  eval "$(erlenv init -)"
-
-[ -d ~/.packages/stack ] && \
-  export PATH="$HOME/.packages/stack:$PATH"
+[ -d ~/.local/stack ] && \
+  export PATH="$HOME/.local/stack:$PATH"
 
 shopt -s nullglob
 if [ -d ~/.bashrc.d ]; then
