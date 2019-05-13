@@ -1,7 +1,5 @@
 export PATH="$HOME/.local/bin:/usr/local/sbin:$PATH"
 
-[ -x /usr/local/bin/pyenv ] && eval "$(pyenv init -)"
-
 if [ -d ~/.local/pyenv ];
 then
   export PYENV_ROOT=~/.local/pyenv
