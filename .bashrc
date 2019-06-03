@@ -1,9 +1,8 @@
 export PATH="$HOME/.local/bin:/usr/local/sbin:$PATH"
 
-if [ -d ~/.local/pyenv ];
+if [ -d "$HOME/.pyenv" ];
 then
-  export PYENV_ROOT=~/.local/pyenv
-  export PATH="$(pyenv root)/shims:$PATH"
+  export PATH="$HOME/.pyenv/shims:$PATH"
 fi
 
 [ -d ~/.local/stack ] && \
