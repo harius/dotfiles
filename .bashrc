@@ -19,8 +19,10 @@ shopt -u nullglob
 # Don't apply bashrc unless the session is interactive.
 [ -n "$PS1" ] || return
 
+[ -n "$PROMPT_STYLE" ] || PROMPT_STYLE="\[\e[32m\]"
+
 # Make a fancy prompt and preserve it from external intrusions.
-PS1="\[\e[32m\](\A) \[\e[37m\]\w\n\[\e[32m\]\$ \[\e[0m\]"
+PS1="$PROMPT_STYLE(\A) \[\e[37m\]\w\n$PROMPT_STYLE\$ \[\e[0m\]"
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 if [ ! -d ~/.cache ]; then
