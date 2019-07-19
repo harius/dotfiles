@@ -41,6 +41,11 @@ HISTSIZE=10000
 ls --version >/dev/null 2>/dev/null && alias ls='ls --color=auto'
 export CLICOLOR=1
 
+ssh () {
+    LC_RELATIVE_PWD="${PWD#$HOME}"
+    LC_RELATIVE_PWD="${LC_RELATIVE_PWD#/}" /usr/bin/ssh "$@"
+}
+
 export PS_FORMAT=uname,pid,ppid,pgid,c,stime,time,cmd
 export MSSQL_CLI_TELEMETRY_OPTOUT=1
 
@@ -54,3 +59,7 @@ dotfiles-install () {
 
   rsync -ab --cvs-exclude --exclude .git --backup-dir .backup "$1/" "$2"
 }
+
+if [ -n "$LC_RELATIVE_PWD" ]; then
+  cd "$LC_RELATIVE_PWD"
+fi
