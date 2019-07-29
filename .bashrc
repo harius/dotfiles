@@ -16,6 +16,10 @@ if [ -d ~/.bashrc.d ]; then
 fi
 shopt -u nullglob
 
+if [ -n "$LC_RELATIVE_PWD" ]; then
+  cd "$LC_RELATIVE_PWD"
+fi
+
 # Don't apply bashrc unless the session is interactive.
 [ -n "$PS1" ] || return
 
@@ -59,7 +63,3 @@ dotfiles-install () {
 
   rsync -ab --cvs-exclude --exclude .git --backup-dir .backup "$1/" "$2"
 }
-
-if [ -n "$LC_RELATIVE_PWD" ]; then
-  cd "$LC_RELATIVE_PWD"
-fi
