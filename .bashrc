@@ -20,6 +20,8 @@ if [ -n "$LC_RELATIVE_PWD" ]; then
   cd "$LC_RELATIVE_PWD"
 fi
 
+[ -x /usr/bin/direnv ] && eval "$(direnv export bash 2>/dev/null)"
+
 # Don't apply bashrc unless the session is interactive.
 [ -n "$PS1" ] || return
 
@@ -63,3 +65,5 @@ dotfiles-install () {
 
   rsync -ab --cvs-exclude --exclude .git --backup-dir .backup "$1/" "$2"
 }
+
+[ -x /usr/bin/direnv ] && eval "$(direnv hook bash)"
