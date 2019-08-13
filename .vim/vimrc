@@ -120,7 +120,7 @@ function FCSHandler(name)
   endif
 endfunction
 
-nmap <Leader>e :e<Space>%:h
+nmap <Leader>e :find<Space>
 
 if filereadable(expand("~/.vim/vimrc-local"))
     source ~/.vim/vimrc-local
