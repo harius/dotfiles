@@ -1,10 +1,5 @@
 export PATH="$HOME/.local/bin:/usr/local/sbin:$PATH"
 
-if [ -d "$HOME/.pyenv" ];
-then
-  export PATH="$HOME/.pyenv/shims:$PATH"
-fi
-
 [ -d ~/.local/stack ] && \
   export PATH="$HOME/.local/stack:$PATH"
 
@@ -20,7 +15,9 @@ if [ -n "$LC_RELATIVE_PWD" ]; then
   cd "$LC_RELATIVE_PWD"
 fi
 
-[ -x /usr/bin/direnv ] && eval "$(direnv export bash 2>/dev/null)"
+if [[ -x /usr/bin/direnv || -x /usr/local/bin/direnv ]];
+then eval "$(direnv export bash 2>/dev/null)"
+fi
 
 # Don't apply bashrc unless the session is interactive.
 [ -n "$PS1" ] || return
@@ -66,4 +63,6 @@ dotfiles-install () {
   rsync -ab --cvs-exclude --exclude .git --backup-dir .backup "$1/" "$2"
 }
 
-[ -x /usr/bin/direnv ] && eval "$(direnv hook bash)"
+if [[ -x /usr/bin/direnv || -x /usr/local/bin/direnv ]];
+then eval "$(direnv hook bash)"
+fi
