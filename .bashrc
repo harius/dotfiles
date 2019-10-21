@@ -52,17 +52,6 @@ ssh () {
 export PS_FORMAT=uname,pid,ppid,pgid,c,stime,time,cmd
 export MSSQL_CLI_TELEMETRY_OPTOUT=1
 
-dotfiles-install () {
-  if [[ ! -d "$1" || -z "$2" || "$#" > 2 ]]; then
-    echo "Usage:" >/dev/stderr
-    echo "  dotfiles-install path/to/dotfiles [host:]path/to/home" >/dev/stderr
-
-    return 1
-  fi
-
-  rsync -ab --cvs-exclude --exclude .git --backup-dir .backup "$1/" "$2"
-}
-
 if [[ -x /usr/bin/direnv || -x /usr/local/bin/direnv ]];
 then eval "$(direnv hook bash)"
 fi
