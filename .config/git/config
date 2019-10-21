@@ -12,7 +12,7 @@
     co = commit --verbose
     st = status
 [push]
-    default = matching
+    default = current
 [color]
     ui = true
 [difftool "sourcetree"]
