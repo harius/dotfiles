@@ -11,8 +11,9 @@ if [ -d ~/.bashrc.d ]; then
 fi
 shopt -u nullglob
 
-if [ -n "$LC_RELATIVE_PWD" ]; then
+if [ -d "$LC_RELATIVE_PWD" ]; then
   cd "$LC_RELATIVE_PWD"
+  unset LC_RELATIVE_PWD
 fi
 
 if [[ -x /usr/bin/direnv || -x /usr/local/bin/direnv ]];
