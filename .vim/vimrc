@@ -106,11 +106,6 @@ endif
 set undodir=~/.vim/undo//
 set undofile
 
-if &term == "screen-256color"
-    autocmd BufEnter * call system("tmux rename-window " . "'vim:" . expand("%:t") . "'")
-    autocmd VimLeave * call system("tmux setw automatic-rename")
-endif
-
 au FileChangedShell * call FCSHandler(expand("<afile>:p"))
 function FCSHandler(name)
   let v:fcs_choice = "reload"
@@ -121,7 +116,3 @@ function FCSHandler(name)
 endfunction
 
 nmap <Leader>e :find<Space>
-
-if filereadable(expand("~/.vim/vimrc-local"))
-    source ~/.vim/vimrc-local
-endif
