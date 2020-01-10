@@ -10,9 +10,12 @@ if isdirectory(expand('~/.vim/bundle/Vundle.vim/'))
     Plugin 'gmarik/Vundle.vim'
     Plugin 'endel/vim-github-colorscheme'
     Plugin 'mihaifm/bufstop'
+    Plugin 'direnv/direnv.vim'
+    Plugin 'ludovicchabant/vim-gutentags'
 
     filetype plugin indent on
 endif
+set rtp+=/usr/local/opt/fzf
 
 try
     colorscheme github
@@ -115,4 +118,10 @@ function FCSHandler(name)
   endif
 endfunction
 
-nmap <Leader>e :find<Space>
+nnoremap <Leader>e :find<Space>
+
+function! s:oppy(e)
+    execute "e " . split(a:e)[1]
+endfunction
+
+nnoremap <Leader>f :call fzf#run({'source': 'python_packages', 'options':'--with-nth 1', 'sink': function('<sid>oppy')})<CR>
