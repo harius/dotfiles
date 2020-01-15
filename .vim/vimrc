@@ -118,6 +118,7 @@ function FCSHandler(name)
   endif
 endfunction
 
+set path=.,,
 nnoremap <Leader>e :find<Space>
 
 function! s:oppy(e)
