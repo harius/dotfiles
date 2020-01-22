@@ -16,6 +16,8 @@ if [ -d "$LC_RELATIVE_PWD" ]; then
   unset LC_RELATIVE_PWD
 fi
 
+export PYTHONDONTWRITEBYTECODE=1
+
 if [[ -x /usr/bin/direnv || -x /usr/local/bin/direnv ]];
 then eval "$(direnv export bash 2>/dev/null)"
 fi
