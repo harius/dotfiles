@@ -2,3 +2,5 @@
 tags
 .pylintrc
 .envrc
+.notags
+tags.lock
