@@ -1,8 +1,5 @@
 export PATH="$HOME/.local/bin:/usr/local/sbin:$PATH"
 
-[ -d ~/.local/stack ] && \
-  export PATH="$HOME/.local/stack:$PATH"
-
 shopt -s nullglob
 if [ -d ~/.bashrc.d ]; then
     for rcfile in ~/.bashrc.d/*; do
