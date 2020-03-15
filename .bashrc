@@ -22,6 +22,11 @@ if [[ -x /usr/bin/direnv || -x /usr/local/bin/direnv ]];
 then eval "$(direnv export bash 2>/dev/null)"
 fi
 
+if [ -d "$HOME/.jenv" ];
+then
+  eval "$(jenv init -)"
+fi
+
 # Don't apply bashrc unless the session is interactive.
 [ -n "$PS1" ] || return
 
