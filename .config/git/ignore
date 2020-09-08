@@ -1,6 +1,6 @@
 .ctags
-tags
+/tags
 .pylintrc
 .envrc
 .notags
-tags.lock
+/tags.lock
