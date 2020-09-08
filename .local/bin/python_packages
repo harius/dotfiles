@@ -1,0 +1,30 @@
+#!/usr/bin/env python
+from __future__ import print_function
+
+from os import environ
+from os.path import join
+from pkgutil import iter_modules
+
+
+def walk(path):
+    for entry in iter_modules([path]):
+        finder, name, ispkg = entry
+        yield (), entry
+        if ispkg:
+            for child_prefix, child_entry in walk(join(finder.path, name)):
+                yield (name,) + child_prefix, child_entry
+
+
+def fileof(entry):
+    finder, name, ispkg = entry
+    if ispkg:
+        return join(finder.path, name, "__init__.py")
+    return join(finder.path, name + ".py")
+
+
+if __name__ == "__main__":
+    paths = environ.get("PYTHONPATH", ".").split(":")
+    for path in paths:
+        for prefix, entry in walk(path):
+            finder, name, ispkg = entry
+            print(".".join(prefix + (name,)), fileof(entry), sep="\t")
